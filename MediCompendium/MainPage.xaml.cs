@@ -1,4 +1,6 @@
-﻿namespace MediCompendium;
+﻿using MediCompendium.Services;
+
+namespace MediCompendium;
 
 public partial class MainPage : ContentPage {
     int count = 0;
@@ -8,6 +10,7 @@ public partial class MainPage : ContentPage {
     }
 
     private void OnCounterClicked(object sender, EventArgs e) {
+        ApiCommands.FetchMedications();
         count++;
 
         if (count == 1)
