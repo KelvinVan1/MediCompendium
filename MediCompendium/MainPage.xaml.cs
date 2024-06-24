@@ -9,7 +9,7 @@ public partial class MainPage : ContentPage {
         InitializeComponent();
     }
 
-    private void OnCounterClicked(object sender, EventArgs e) {
+    private void OnContinueClicked(object sender, EventArgs e) {
         ApiCommands.FetchMedications();
         count++;
 
