@@ -63,8 +63,20 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Pages\" />
-      <Folder Include="Views\" />
+      <MauiXaml Update="Pages\MedicationList.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Pages\MedicationList.xaml.cs">
+        <DependentUpon>MedicationList.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Pages\MedicationList.xaml" />
     </ItemGroup>
 
 </Project>

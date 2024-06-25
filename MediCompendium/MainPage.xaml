@@ -15,13 +15,11 @@
 
             <Label
                 Text="MediCompendium"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
+                Style="{StaticResource Headline}"/>
 
             <Label
                 Text="Important Disclaimer"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"/>
+                Style="{StaticResource SubHeadline}"/>
             
             <Label
                 Text="All data from MediCompendium is gathered from openly available data from the FDA and should not be used to replace professional medical advice."/>
@@ -31,7 +29,6 @@
                 />
 
             <Button
-                x:Name="CounterBtn"
                 Text="I Understand" 
                 Clicked="OnContinueClicked"
                 HorizontalOptions="Fill" />
