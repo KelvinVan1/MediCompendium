@@ -12,9 +12,10 @@ public class ApiCommands {
     /// Fetches a list of medications from the OpenFDA API
     /// </summary>
     /// <returns>A list of medication NDC data. Returns an empty list if request fails</returns>
-    public static async Task<List<NdcData>> FetchMedications() {
+    public static async Task<List<NdcData>> FetchMedications(int skipCount) {
         try {
-            HttpResponseMessage responseMessage = await ApiClient.Client.GetAsync($"{Constants.NdcRoute}{Constants.Limit}");
+            string reqUri = $"{Constants.NdcRoute}{Constants.Limit}&skip={skipCount}";
+            HttpResponseMessage responseMessage = await ApiClient.Client.GetAsync(reqUri);
             var response = await responseMessage.Content.ReadFromJsonAsync<JsonDocument>();
             var content = response.RootElement.GetProperty("results").GetRawText();
             return JsonSerializer.Deserialize<List<NdcData>>(content) ?? new List<NdcData>();

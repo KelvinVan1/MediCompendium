@@ -3,5 +3,23 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MediCompendium.Views.MedicationItem">
-    <Label Text="Test"/>
+    <Frame BorderColor="Gray"
+           CornerRadius="5"
+           Padding="10">
+        <Grid RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+    
+            <Label Grid.Row="0"
+                Style="{StaticResource SubHeadline}"
+                Text="{Binding BrandName}"/>
+            <Label Grid.Row="1"
+                Text="{Binding GenericName}"/>
+            <Label Grid.Row="2"
+            Text="{Binding LabelerName}"/>
+        </Grid>
+    </Frame>
 </ContentView>
