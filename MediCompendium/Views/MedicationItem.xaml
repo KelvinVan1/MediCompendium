@@ -6,20 +6,20 @@
     <Frame BorderColor="Gray"
            CornerRadius="5"
            Padding="10">
-        <Grid RowSpacing="20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-    
+        <StackLayout Spacing="20">
             <Label Grid.Row="0"
+                LineBreakMode="WordWrap"
                 Style="{StaticResource SubHeadline}"
-                Text="{Binding BrandName}"/>
+                Text="{Binding BrandName, StringFormat='Brand Name: {0}'}"/>
             <Label Grid.Row="1"
-                Text="{Binding GenericName}"/>
-            <Label Grid.Row="2"
-            Text="{Binding LabelerName}"/>
-        </Grid>
+                 LineBreakMode="WordWrap"
+                 Text="{Binding GenericName, StringFormat='Generic Name: {0}'}"/>
+            <Label Grid.Row="2" 
+                   LineBreakMode="WordWrap"
+                   Text="{Binding LabelerName, StringFormat='labeler: {0}'}"/>
+            <Button
+                HorizontalOptions="Center"
+                Text="View Details"/>
+        </StackLayout>
     </Frame>
 </ContentView>

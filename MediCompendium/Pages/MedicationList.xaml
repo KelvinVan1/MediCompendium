@@ -5,46 +5,45 @@
              xmlns:views="clr-namespace:MediCompendium.Views"
              x:Class="MediCompendium.Pages.MedicationList">
     <ContentPage.Content>
-        <ScrollView>
-            <Grid Padding="20,0">
+        <Grid Padding="20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+    
+            <Label Grid.Row="0"
+                   Text="Medication List"
+                   Style="{StaticResource Headline}"/>
+        
+            <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-            
-                <Label Grid.Row="0"
-                       Text="Medication List"
-                       Style="{StaticResource Headline}"/>
-            
-                <CollectionView Grid.Row="1" ItemsSource="{Binding Medications}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <views:MedicationItem Medication="{Binding .}"/>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView> 
-            
-                <Grid Grid.Row="2">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                
-                    <Button Grid.Column="0"
-                            HeightRequest="100"
-                            Margin="5"
-                            Text="Prev"/>
-                    <Button Grid.Column="1"
-                            HeightRequest="100"
-                            Margin="5"
-                            Clicked="OnNextClicked"
-                            Text="Next"/>
-                </Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+        
+                <Button Grid.Column="0"
+                        HeightRequest="50"
+                        Margin="5"
+                        Clicked="OnPrevClicked"
+                        Text="Prev"/>
+                <Button Grid.Column="1"
+                        HeightRequest="50"
+                        Margin="5"
+                        Clicked="OnNextClicked"
+                        Text="Next"/>
             </Grid>
-        </ScrollView>
+        
+            <CollectionView Grid.Row="2" ItemsSource="{Binding Medications}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <views:MedicationItem/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView> 
+        </Grid> 
     </ContentPage.Content>
 </ContentPage>

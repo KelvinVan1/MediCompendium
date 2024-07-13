@@ -32,4 +32,11 @@ public partial class MedicationList : ContentPage {
         _skip += 5;
         GenerateDisplay();
     }
+    private void OnPrevClicked(Object sender, EventArgs e) {
+        if (_skip <= 0) return;
+        
+        Medications.Clear();
+        _skip -= 5;
+        GenerateDisplay();
+    }
 }
