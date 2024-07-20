@@ -12,6 +12,7 @@ public class Helper {
                 BrandName = ndc.brand_name,
                 LabelerName = ndc.labeler_name,
                 GenericName = ndc.generic_name,
+                ActiveIngredients = ndc.active_ingredients,
             });
         }
 
