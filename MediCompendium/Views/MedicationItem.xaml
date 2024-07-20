@@ -40,10 +40,17 @@
             </Grid>
             
             <Image Grid.Row="0" Grid.Column="2"
+                   x:Name="FavoriteHeart"
                    Source="heart.png"
                    HeightRequest="20"
                    Aspect="AspectFit"
-                   SemanticProperties.Description="dot net bot in a race car number eight" />
+                   SemanticProperties.Description="Favorite Heart for medication">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        NumberOfTapsRequired="1"
+                        Tapped="OnFavoriteTapped"/>
+                </Image.GestureRecognizers>
+            </Image>
             
             <BoxView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Black" ></BoxView>
             

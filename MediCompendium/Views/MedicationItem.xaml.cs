@@ -21,6 +21,10 @@ public partial class MedicationItem : ContentView {
         InitializeComponent();
     }
 
+    private void OnFavoriteTapped(object sender, EventArgs e) {
+        var currentImage = FavoriteHeart.Source.ToString();
+        FavoriteHeart.Source = currentImage.Contains("heart.png") ? "heart_filled.png" : "heart.png";
+    }
     protected override void OnPropertyChanged(string propName = null) {
         base.OnPropertyChanged(propName);
         if (propName == MedicationProperty.PropertyName)
