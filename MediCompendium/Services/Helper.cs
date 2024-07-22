@@ -9,6 +9,8 @@ public class Helper {
         
         foreach (var ndc in ndcInformation) {
             result.Add(new Medication() {
+                ProductNdc = ndc.product_ndc,
+                ProductType = ndc.product_type,
                 BrandName = ndc.brand_name,
                 LabelerName = ndc.labeler_name,
                 GenericName = ndc.generic_name,
