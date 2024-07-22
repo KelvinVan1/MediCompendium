@@ -6,11 +6,17 @@
     <Frame BorderColor="Gray"
            CornerRadius="5"
            Margin="10">
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer
+                NumberOfTapsRequired="1"
+                Tapped="OnMedicationTapped"/>
+        </Frame.GestureRecognizers>
+        
         <Grid ColumnSpacing="10" RowSpacing="20">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="1"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             
             <Grid.ColumnDefinitions>
@@ -23,7 +29,7 @@
                    Source="pill.png"
                    HeightRequest="20"
                    Aspect="AspectFit"
-                   SemanticProperties.Description="dot net bot in a race car number eight" />
+                   SemanticProperties.Description="Medication Icon" />
             
             <Grid Grid.Row="0" Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -36,7 +42,8 @@
                        Text="{Binding BrandName, StringFormat='{0}'}"/>
                 <Label Grid.Row="1"
                        LineBreakMode="WordWrap"
-                       Text="{Binding BrandName, StringFormat='{0}'}"/>
+                       x:Name="ActiveIngredientLabel"
+                       Text="Loading..."/>
             </Grid>
             
             <Image Grid.Row="0" Grid.Column="2"

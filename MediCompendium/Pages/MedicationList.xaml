@@ -40,7 +40,7 @@
             <CollectionView Grid.Row="2" ItemsSource="{Binding Medications}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <views:MedicationItem/>
+                        <views:MedicationItem CurrentMedication="{Binding .}"/>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView> 
