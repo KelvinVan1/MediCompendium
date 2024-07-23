@@ -25,6 +25,7 @@ public record NdcData {
    public string generic_name { get; set; }
    public string labeler_name { get; set; }
    public string brand_name { get; set; }
+   public string dea_schedule { get; set; }
    public List<ActiveIngredients> active_ingredients { get; set; }
    public bool finished { get; set; }
    public List<Packaging> packaging { get; set; }

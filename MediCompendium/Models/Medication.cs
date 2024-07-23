@@ -7,6 +7,7 @@ public class Medication {
     public string? BrandName { get; set; }
     public string? GenericName { get; set; }
     public string? LabelerName { get; set; }
+    public string? DosageForm { get; set; }
     public List<ActiveIngredients>? ActiveIngredients { get; set; }
     
     public Medication(){}
