@@ -26,5 +26,23 @@ public class ApiCommands {
         }
     }
     
+    /// <summary>
+    /// Search for medications based on brand name the OpenFDA API
+    /// </summary>
+    /// <returns>A list of medication NDC data. Returns an empty list if request fails</returns>
+    public static async Task<List<NdcData>> searchMedication(string medicationName, int skipCount) {
+        try {
+            string reqUri = $"{Constants.NdcRoute}{Constants.Limit}&search=brand_name:\"{medicationName}\"&skip={skipCount}";
+            HttpResponseMessage responseMessage = await ApiClient.Client.GetAsync(reqUri);
+            var response = await responseMessage.Content.ReadFromJsonAsync<JsonDocument>();
+            var content = response.RootElement.GetProperty("results").GetRawText();
+            return JsonSerializer.Deserialize<List<NdcData>>(content) ?? new List<NdcData>();
+        }
+        catch(Exception err) {
+            Console.WriteLine(err);
+            return new List<NdcData>();
+        }
+    }
+    
     
 }

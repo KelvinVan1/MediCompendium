@@ -9,13 +9,14 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-    
+            
             <Label Grid.Row="0"
                    Text="Medication List"
                    Style="{StaticResource Headline}"/>
-        
+            
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -25,19 +26,38 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
         
-                <Button Grid.Column="0"
+                <Button Grid.Row="0" Grid.Column="0"
                         HeightRequest="50"
                         Margin="5"
                         Clicked="OnPrevClicked"
                         Text="Prev"/>
-                <Button Grid.Column="1"
+                <Button Grid.Row="0" Grid.Column="1"
                         HeightRequest="50"
                         Margin="5"
                         Clicked="OnNextClicked"
                         Text="Next"/>
             </Grid>
+            
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
         
-            <CollectionView Grid.Row="2" ItemsSource="{Binding Medications}">
+                <SearchBar Grid.Row="0" Grid.Column="0" x:Name="SearchBar" Placeholder="Search items..."
+                           SearchCommand="{Binding PerformSearch}"
+                           SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}"/>
+                <Button Grid.Row="0" Grid.Column="1"
+                        HeightRequest="40"
+                        Margin="5"
+                        Clicked="OnResetClicked"
+                        Text="Reset"/>
+            </Grid>
+        
+            <CollectionView Grid.Row="3" ItemsSource="{Binding Medications}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <views:MedicationItem CurrentMedication="{Binding .}"/>
