@@ -64,7 +64,7 @@
             <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
                    LineBreakMode="WordWrap"
                    Style="{StaticResource MedicationDescription}"
-                   Text="{Binding GenericName, StringFormat='Generic Name: {0}'}"/>               
+                   Text="{Binding LabelerName, StringFormat='Labeler Name: {0}'}"/>
         </Grid>
     </Frame>
 </ContentView>
