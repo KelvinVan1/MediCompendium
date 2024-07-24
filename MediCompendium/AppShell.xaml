@@ -15,4 +15,8 @@
     <ShellContent
         ContentTemplate="{DataTemplate pages:MedicationList}"
         Route="MedicationList"/>
+    
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:PrescriptionDetails}"
+        Route="PrescriptionDetails"/>
 </Shell>

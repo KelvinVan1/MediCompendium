@@ -35,7 +35,7 @@ public partial class MedicationItem : ContentView {
     }
 
     private void OnMedicationTapped(object sender, EventArgs e) {
-        Console.WriteLine("Medication Tapped!");
+        Shell.Current.GoToAsync("//PrescriptionDetails");
     }
     
 }
