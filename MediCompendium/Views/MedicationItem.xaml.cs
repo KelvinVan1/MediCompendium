@@ -33,9 +33,11 @@ public partial class MedicationItem : ContentView {
         var currentImage = FavoriteHeart.Source.ToString();
         FavoriteHeart.Source = currentImage.Contains("heart.png") ? "heart_filled.png" : "heart.png";
     }
-
-    private void OnMedicationTapped(object sender, EventArgs e) {
-        Shell.Current.GoToAsync("//PrescriptionDetails");
+    private async void OnMedicationTapped(object sender, EventArgs e) {
+        if (CurrentMedication.ProductType == "HUMAN PRESCRIPTION DRUG")
+            await Shell.Current.GoToAsync($"//PrescriptionDetails?MedicationDetails={CurrentMedication.ProductNdc}");
+        else
+            await Shell.Current.GoToAsync($"//OtcDetails?MedicationDetails={CurrentMedication.ProductNdc}");
     }
     
 }

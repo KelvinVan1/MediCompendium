@@ -107,8 +107,6 @@
                           x:Name="MedicationUsage"
                           Text="Loading..."/>
             </Grid>
-            
-            
         </Grid>
     </ContentPage.Content>
 </ContentPage>
