@@ -14,7 +14,7 @@ public class ApiCommands {
     /// <returns>A list of medication NDC data. Returns an empty list if request fails</returns>
     public static async Task<List<NdcData>> FetchMedications(int skipCount) {
         try {
-            string reqUri = $"{Constants.NdcRoute}{Constants.Limit}&skip={skipCount}";
+            string reqUri = $"{Constants.NdcRoute}search=finished:true&{Constants.Limit}&skip={skipCount}";
             HttpResponseMessage responseMessage = await ApiClient.Client.GetAsync(reqUri);
             var response = await responseMessage.Content.ReadFromJsonAsync<JsonDocument>();
             var content = response.RootElement.GetProperty("results").GetRawText();
@@ -32,7 +32,7 @@ public class ApiCommands {
     /// <returns>A list of medication NDC data. Returns an empty list if request fails</returns>
     public static async Task<List<NdcData>> searchMedication(string medicationName, int skipCount) {
         try {
-            string reqUri = $"{Constants.NdcRoute}{Constants.Limit}&search=brand_name:\"{medicationName}\"&skip={skipCount}";
+            string reqUri = $"{Constants.NdcRoute}search=brand_name:\"{medicationName}\"&{Constants.Limit}&skip={skipCount}&finished:true";
             HttpResponseMessage responseMessage = await ApiClient.Client.GetAsync(reqUri);
             var response = await responseMessage.Content.ReadFromJsonAsync<JsonDocument>();
             var content = response.RootElement.GetProperty("results").GetRawText();
