@@ -7,12 +7,14 @@ using MediCompendium.Models;
 
 namespace MediCompendium.Pages;
 
-[QueryProperty("MedicationDetails", "MedicationDetails")]
+[QueryProperty("MedicationNdc", "MedicationNdc")]
 public partial class OTCDetails : ContentPage {
-    private MedicationPrescription _medicationDetails; 
-    public MedicationPrescription MedicationDetails {
-        get => _medicationDetails;
-        set => _medicationDetails = value;
+    private string _medicationNdc; 
+    public string MedicationNdc {
+        get => _medicationNdc;
+        set {
+            _medicationNdc = value;
+        }
     }
     public OTCDetails() {
         InitializeComponent();

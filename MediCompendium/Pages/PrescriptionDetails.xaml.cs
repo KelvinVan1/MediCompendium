@@ -8,15 +8,23 @@ using MediCompendium.Models;
 namespace MediCompendium.Pages;
 
 
-[QueryProperty("MedicationDetails", "MedicationDetails")]
+[QueryProperty("MedicationNdc", "MedicationNdc")]
 public partial class PrescriptionDetails : ContentPage {
-    private MedicationPrescription _medicationDetails; 
-    public MedicationPrescription MedicationDetails {
-        get => _medicationDetails;
-        set => _medicationDetails = value;
+    private string _medicationNdc; 
+    public string MedicationNdc {
+        get => _medicationNdc;
+        set {
+            _medicationNdc = value;
+            FetchMedicationData();
+        }
     }
+
     public PrescriptionDetails() {
         InitializeComponent();
+    }
+
+    private void FetchMedicationData() {
+        
     }
     
     protected override bool OnBackButtonPressed() {

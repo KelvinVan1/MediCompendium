@@ -35,9 +35,9 @@ public partial class MedicationItem : ContentView {
     }
     private async void OnMedicationTapped(object sender, EventArgs e) {
         if (CurrentMedication.ProductType == "HUMAN PRESCRIPTION DRUG")
-            await Shell.Current.GoToAsync($"//PrescriptionDetails?MedicationDetails={CurrentMedication.ProductNdc}");
+            await Shell.Current.GoToAsync($"//PrescriptionDetails?MedicationNdc={CurrentMedication.ProductNdc}");
         else
-            await Shell.Current.GoToAsync($"//OtcDetails?MedicationDetails={CurrentMedication.ProductNdc}");
+            await Shell.Current.GoToAsync($"//OtcDetails?MedicationNdc={CurrentMedication.ProductNdc}");
     }
     
 }
