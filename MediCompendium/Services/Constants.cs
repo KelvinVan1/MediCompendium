@@ -4,6 +4,7 @@ static class Constants
 {
     // API
     public const string NdcRoute = "https://api.fda.gov/drug/ndc.json?";
+    public const string LabelRoute = "https://api.fda.gov/drug/label.json?";
     public const string Limit = "limit=5";
     
     // Database

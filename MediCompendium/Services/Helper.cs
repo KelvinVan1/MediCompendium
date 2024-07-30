@@ -31,4 +31,30 @@ public class Helper {
         
         return result;
     }
+
+    public static async Task<Medication> FetchMedication(string productNdc) {
+        var label = await ApiCommands.FetchMedicationLabel(productNdc);
+        var ndc = await ApiCommands.FetchMedicationNdc(productNdc);
+        if(ndc.product_type == "HUMAN PRESCRIPTION DRUG")
+            return new MedicationPrescription() {
+                ProductNdc = ndc.product_ndc,
+                ProductType = ndc.product_type,
+                BrandName = ndc.brand_name,
+                LabelerName = ndc.labeler_name,
+                GenericName = ndc.generic_name,
+                Description = label.Description,
+                Warnings = label.warnings,
+                ActiveIngredients = ndc.active_ingredients,
+                DeaSchedule = ndc.dea_schedule,
+            };
+        else
+            return new MedicationOTC() {
+                ProductNdc = ndc.product_ndc,
+                ProductType = ndc.product_type,
+                BrandName = ndc.brand_name,
+                LabelerName = ndc.labeler_name,
+                GenericName = ndc.generic_name,
+                ActiveIngredients = ndc.active_ingredients,
+            };
+    }
 }

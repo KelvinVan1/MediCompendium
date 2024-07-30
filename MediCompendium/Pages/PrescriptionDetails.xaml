@@ -4,109 +4,119 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MediCompendium.Pages.PrescriptionDetails">
     <ContentPage.Content>
-        <Grid Padding="20,0" RowSpacing="5">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="3"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            
-            <Label Grid.Row="0" 
-                   x:Name="MedicationName"
-                   Style="{StaticResource Headline}"
-                   Text="MEDICATION NAME"/>
-            <Label Grid.Row="1" 
-                   x:Name="MedicationLabeler"
-                   Style="{StaticResource SubHeadline}"
-                   Text="MEDICATION LABELER"/>
-            <Label Grid.Row="2"
-                   Style="{StaticResource SubHeadline}"
-                   Text="DEA Schedule:"/>
-            
-            <BoxView Grid.Row="3" BackgroundColor="Black" ></BoxView>
-            
-            <Grid Grid.Row="4">
+           <ScrollView x:Name="MainScrollView">
+              <Grid Padding="20,0" RowSpacing="5">
                    <Grid.RowDefinitions>
-                          <RowDefinition Height="*"/>
-                          <RowDefinition Height="*"/>
+                       <RowDefinition Height="Auto"/>
+                       <RowDefinition Height="Auto"/>
+                       <RowDefinition Height="Auto"/>
+                       <RowDefinition Height="3"/>
+                       <RowDefinition Height="Auto"/>
+                       <RowDefinition Height="Auto"/>
+                       <RowDefinition Height="Auto"/>
+                       <RowDefinition Height="Auto"/>
+                       <RowDefinition Height="Auto"/>
+                       <RowDefinition Height="Auto"/>
                    </Grid.RowDefinitions>
+                   
                    <Label Grid.Row="0" 
-                          Style="{StaticResource MedicationName}"
-                          Text="Description:"/>
+                          x:Name="MedicationName"
+                          Style="{StaticResource Headline}"
+                          Text="MEDICATION NAME"/>
                    <Label Grid.Row="1" 
-                          x:Name="MedicationDescription"
-                          Text="Loading..."/>
-            </Grid>
-            
-            <Grid Grid.Row="5">
-                   <Grid.RowDefinitions>
-                          <RowDefinition Height="*"/>
-                          <RowDefinition Height="*"/>
-                   </Grid.RowDefinitions>
-                   <Label Grid.Row="0"
-                          Style="{StaticResource MedicationName}"
-                          Text="Dosage:"/>
-                   <Label Grid.Row="1" 
-                          x:Name="MedicationDosage"
-                          Text="Loading..."/>
-            </Grid>
-            
-            <Grid Grid.Row="6">
-                   <Grid.RowDefinitions>
-                          <RowDefinition Height="*"/>
-                          <RowDefinition Height="*"/>
-                   </Grid.RowDefinitions>
-                   <Label Grid.Row="0"
-                          Style="{StaticResource MedicationName}"
-                          Text="Active Ingredients:"/>
-                   <Label Grid.Row="1" 
-                          x:Name="MedicationActiveIngredients"
-                          Text="Loading..."/>
-            </Grid>
-            
-            <Grid Grid.Row="7">
-                   <Grid.RowDefinitions>
-                          <RowDefinition Height="*"/>
-                          <RowDefinition Height="*"/>
-                   </Grid.RowDefinitions>
-                   <Label Grid.Row="0"
-                          Style="{StaticResource MedicationName}"
-                          Text="Packaging:"/>
-                   <Label Grid.Row="1" 
-                          x:Name="MedicationPackaging"
-                          Text="Loading..."/>
-            </Grid>
-            <Grid Grid.Row="8">
-                   <Grid.RowDefinitions>
-                          <RowDefinition Height="*"/>
-                          <RowDefinition Height="*"/>
-                   </Grid.RowDefinitions>
-                   <Label Grid.Row="0"
-                          Style="{StaticResource MedicationName}"
-                          Text="Warnings:"/>
-                   <Label Grid.Row="1" 
-                          x:Name="MedicationWarnings"
-                          Text="Loading..."/>
-            </Grid>
-            <Grid Grid.Row="9">
-                   <Grid.RowDefinitions>
-                          <RowDefinition Height="*"/>
-                          <RowDefinition Height="*"/>
-                   </Grid.RowDefinitions>
-                   <Label Grid.Row="0"
-                          Style="{StaticResource MedicationName}"
-                          Text="Usage:"/>
-                   <Label Grid.Row="1" 
-                          x:Name="MedicationUsage"
-                          Text="Loading..."/>
-            </Grid>
-        </Grid>
+                          x:Name="MedicationLabeler"
+                          Style="{StaticResource SubHeadline}"
+                          Text="MEDICATION LABELER"/>
+                   <Label Grid.Row="2"
+                          Style="{StaticResource SubHeadline}"
+                          x:Name="DeaSchedule"
+                          Text="DEA Schedule:"/>
+                   
+                   <BoxView Grid.Row="3" BackgroundColor="Black" ></BoxView>
+                   
+                   <Grid Grid.Row="4" x:Name="DescriptionGrid">
+                          <Grid.RowDefinitions>
+                                 <RowDefinition Height="*"/>
+                                 <RowDefinition Height="*"/>
+                                 <RowDefinition Height="*"/>
+                          </Grid.RowDefinitions>
+                          <Label Grid.Row="0" 
+                                 Style="{StaticResource MedicationName}"
+                                 Text="Description:"/>
+                          <Label Grid.Row="1"
+                                 x:Name="MedicationDescription"
+                                 IsVisible="False"
+                                 Text="Loading..."/>
+                          <Button Grid.Row="2"
+                                 x:Name="MedicationDescriptionButton"
+                                 Clicked="ToggleDescriptionVisibility"
+                                 Text="Show Details"/>
+                   </Grid>
+                   
+                   <Grid Grid.Row="5">
+                          <Grid.RowDefinitions>
+                                 <RowDefinition Height="*"/>
+                                 <RowDefinition Height="*"/>
+                          </Grid.RowDefinitions>
+                          <Label Grid.Row="0"
+                                 Style="{StaticResource MedicationName}"
+                                 Text="Dosage:"/>
+                          <Label Grid.Row="1" 
+                                 x:Name="MedicationDosage"
+                                 Text="Loading..."/>
+                   </Grid>
+                   
+                   <Grid Grid.Row="6">
+                          <Grid.RowDefinitions>
+                                 <RowDefinition Height="*"/>
+                                 <RowDefinition Height="*"/>
+                          </Grid.RowDefinitions>
+                          <Label Grid.Row="0"
+                                 Style="{StaticResource MedicationName}"
+                                 Text="Active Ingredients:"/>
+                          <Label Grid.Row="1" 
+                                 x:Name="MedicationActiveIngredients"
+                                 TextType="Html"
+                                 Text="Loading..."/>
+                   </Grid>
+                   
+                   <Grid Grid.Row="7">
+                          <Grid.RowDefinitions>
+                                 <RowDefinition Height="*"/>
+                                 <RowDefinition Height="*"/>
+                          </Grid.RowDefinitions>
+                          <Label Grid.Row="0"
+                                 Style="{StaticResource MedicationName}"
+                                 Text="Packaging:"/>
+                          <Label Grid.Row="1" 
+                                 x:Name="MedicationPackaging"
+                                 Text="Loading..."/>
+                   </Grid>
+                   <Grid Grid.Row="8">
+                          <Grid.RowDefinitions>
+                                 <RowDefinition Height="*"/>
+                                 <RowDefinition Height="*"/>
+                          </Grid.RowDefinitions>
+                          <Label Grid.Row="0"
+                                 Style="{StaticResource MedicationName}"
+                                 Text="Warnings:"/>
+                          <Label Grid.Row="1" 
+                                 x:Name="MedicationWarnings"
+                                 Text="Loading..."/>
+                   </Grid>
+                   <Grid Grid.Row="9">
+                          <Grid.RowDefinitions>
+                                 <RowDefinition Height="*"/>
+                                 <RowDefinition Height="*"/>
+                          </Grid.RowDefinitions>
+                          <Label Grid.Row="0"
+                                 Style="{StaticResource MedicationName}"
+                                 Text="Usage:"/>
+                          <Label Grid.Row="1" 
+                                 x:Name="MedicationUsage"
+                                 Text="Loading..."/>
+                   </Grid>
+              </Grid>
+           </ScrollView>
     </ContentPage.Content>
 </ContentPage>

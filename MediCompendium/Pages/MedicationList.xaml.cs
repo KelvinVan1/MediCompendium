@@ -64,7 +64,7 @@ public partial class MedicationList : ContentPage {
         _searching = true;
         
         Medications.Clear();
-        _MedicationViews = Helper.GenerateMedications(await ApiCommands.searchMedication(_searchQuery, _skip));
+        _MedicationViews = Helper.GenerateMedications(await ApiCommands.SearchMedication(_searchQuery, _skip));
         foreach (var medication in _MedicationViews) {
             Medications.Add(medication);
         }
