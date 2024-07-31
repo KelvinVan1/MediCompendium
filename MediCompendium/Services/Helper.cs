@@ -14,7 +14,6 @@ public class Helper {
                     ProductType = ndc.product_type,
                     BrandName = ndc.brand_name,
                     LabelerName = ndc.labeler_name,
-                    GenericName = ndc.generic_name,
                     ActiveIngredients = ndc.active_ingredients,
                     DeaSchedule = ndc.dea_schedule,
                 });
@@ -41,7 +40,6 @@ public class Helper {
                 ProductType = ndc.product_type,
                 BrandName = ndc.brand_name,
                 LabelerName = ndc.labeler_name,
-                GenericName = ndc.generic_name,
                 Description = label.Description,
                 Warnings = label.warnings,
                 IndicationsAndUsage = label.indications_and_usage,
@@ -59,6 +57,12 @@ public class Helper {
                 LabelerName = ndc.labeler_name,
                 GenericName = ndc.generic_name,
                 ActiveIngredients = ndc.active_ingredients,
+                IndicationsAndUsage = label.indications_and_usage,
+                Warnings = label.warnings,
+                KeepOutOfReach = label.keep_out_of_reach_of_children,
+                DosageAndAdministration = label.dosage_and_administration,
+                Questions = label.questions,
+                Purpose = label.purpose,
             };
     }
 }
