@@ -33,7 +33,7 @@ public class ApiCommands {
     /// <returns>A list of medication NDC data. Returns an empty list if request fails</returns>
     public static async Task<List<NdcData>> SearchMedication(string medicationName, int skipCount) {
         try {
-            string reqUri = $"{Constants.NdcRoute}search=brand_name:\"{medicationName}\"&{Constants.Limit}&skip={skipCount}&finished:true";
+            string reqUri = $"{Constants.NdcRoute}search=brand_name:\"{medicationName}\"finished:True&{Constants.Limit}&skip={skipCount}";
             HttpResponseMessage responseMessage = await ApiClient.Client.GetAsync(reqUri);
             var response = await responseMessage.Content.ReadFromJsonAsync<JsonDocument>();
             var content = response.RootElement.GetProperty("results").GetRawText();
