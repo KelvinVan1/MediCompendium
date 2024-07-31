@@ -46,7 +46,7 @@ public partial class PrescriptionDetails : ContentPage {
             if(prescription.DosageAndAdministration != null) 
                 MedicationDosage.Text = prescription.DosageAndAdministration[0].Replace(". ", ".\n\n");
             if (prescription.HowSupplied != null)
-                MedicationPackaging.Text = string.Join("\n", prescription.HowSupplied);
+                MedicationPackaging.Text = string.Join("\n", prescription.HowSupplied).Replace(". ", ".\n\n");
         }
     }
     
