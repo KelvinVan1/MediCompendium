@@ -31,23 +31,26 @@ public partial class PrescriptionDetails : ContentPage {
     }
     
     private void PopulatePage() {
-        if (_currentMedication is MedicationPrescription prescription) {
-            DeaSchedule.Text = prescription.DeaSchedule ?? "DEA Schedule: N/A";
-            MedicationLabeler.Text = $"Labeler: {prescription.LabelerName}";
-            MedicationName.Text = $"Medication: {prescription.BrandName}";
-            if(prescription.ActiveIngredients != null)
-                MedicationActiveIngredients.Text = prescription.ActiveIngredientsToString(prescription.ActiveIngredients.Count).Replace(". ", ".\n");
-            if(prescription.Description != null) 
-                MedicationDescription.Text = prescription.Description[0].Replace(". ",".\n\n");
-            if(prescription.Warnings != null) 
-                MedicationWarnings.Text = prescription.Warnings[0].Replace(". ", ".\n\n");
-            if(prescription.IndicationsAndUsage != null) 
-                MedicationUsage.Text = prescription.IndicationsAndUsage[0].Replace(". ", ".\n\n");
-            if(prescription.DosageAndAdministration != null) 
-                MedicationDosage.Text = prescription.DosageAndAdministration[0].Replace(". ", ".\n\n");
-            if (prescription.HowSupplied != null)
-                MedicationPackaging.Text = string.Join("\n", prescription.HowSupplied).Replace(". ", ".\n\n");
-        }
+        if (!(_currentMedication is MedicationPrescription prescription)) return;
+        
+        DeaSchedule.Text = prescription.DeaSchedule ?? "DEA Schedule: N/A";
+        MedicationLabeler.Text = $"Labeler: {prescription.LabelerName}";
+        MedicationName.Text = $"Medication: {prescription.BrandName}";
+        
+        if(prescription.ActiveIngredients != null)
+            MedicationActiveIngredients.Text = prescription.ActiveIngredientsToString(prescription.ActiveIngredients.Count).Replace(". ", ".\n");
+        if(prescription.Description != null) 
+            MedicationDescription.Text = prescription.Description[0].Replace(". ",".\n\n");
+        if(prescription.WarningsAndCautions != null) 
+            MedicationWarnings.Text = prescription.WarningsAndCautions[0].Replace(". ", ".\n\n");
+        if(prescription.Warnings != null) 
+            MedicationWarnings.Text = prescription.Warnings[0].Replace(". ", ".\n\n");
+        if(prescription.IndicationsAndUsage != null) 
+            MedicationUsage.Text = prescription.IndicationsAndUsage[0].Replace(". ", ".\n\n");
+        if(prescription.DosageAndAdministration != null) 
+            MedicationDosage.Text = prescription.DosageAndAdministration[0].Replace(". ", ".\n\n");
+        if (prescription.HowSupplied != null)
+            MedicationPackaging.Text = string.Join("\n", prescription.HowSupplied).Replace(". ", ".\n\n");
     }
     
     protected override bool OnBackButtonPressed() {
@@ -61,35 +64,39 @@ public partial class PrescriptionDetails : ContentPage {
         return true;
     }
 
-    private async void ToggleVisiblity(Label element, Grid grid) {
+    private async void ToggleVisiblity(Label element, Grid grid, Button button) {
         element.IsVisible = !element.IsVisible;
-        if(element.IsVisible) return;
+        if (element.IsVisible) {
+            button.Text = "Hide Details";
+            return;
+        }
         
+        button.Text = "Show Details";
         await Task.Delay(100);
         await MainScrollView.ScrollToAsync(grid, ScrollToPosition.MakeVisible, false);
     }
 
     private void ToggleDescriptionVisibility(Object sender, EventArgs e) {
-        ToggleVisiblity(MedicationDescription, DescriptionGrid);
+        ToggleVisiblity(MedicationDescription, DescriptionGrid, MedicationDescriptionButton);
     }
     
     private void ToggleWarningVisibility(Object sender, EventArgs e) {
-        ToggleVisiblity(MedicationWarnings, WarningGrid);
+        ToggleVisiblity(MedicationWarnings, WarningGrid, MedicationWarningButton);
     }
     
     private void ToggleUsageVisibility(Object sender, EventArgs e) {
-        ToggleVisiblity(MedicationUsage, UsageGrid);
+        ToggleVisiblity(MedicationUsage, UsageGrid, MedicationUsageButton);
     }
     
     private void ToggleDosageVisibility(Object sender, EventArgs e) {
-        ToggleVisiblity(MedicationDosage, DosageGrid);
+        ToggleVisiblity(MedicationDosage, DosageGrid, MedicationDosageButton);
     }
     
     private void ToggleActiveIngredientsVisibility(Object sender, EventArgs e) {
-        ToggleVisiblity(MedicationActiveIngredients, ActiveIngredientsGrid);
+        ToggleVisiblity(MedicationActiveIngredients, ActiveIngredientsGrid, MedicationActiveIngredientsButton);
     }
     
     private void TogglePackagingVisibility(Object sender, EventArgs e) {
-        ToggleVisiblity(MedicationPackaging, PackagingGrid);
+        ToggleVisiblity(MedicationPackaging, PackagingGrid, MedicationPackagingButton);
     }
 }

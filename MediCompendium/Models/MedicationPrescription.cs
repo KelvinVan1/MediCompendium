@@ -7,4 +7,5 @@ public class MedicationPrescription : Medication {
     public List<string>? IndicationsAndUsage { get; set; }
     public List<string>? DosageAndAdministration { get; set; }
     public List<string>? HowSupplied { get; set; }
+    public List<string>? WarningsAndCautions { get; set; }
 }

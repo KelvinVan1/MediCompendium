@@ -47,6 +47,7 @@ public class Helper {
                 IndicationsAndUsage = label.indications_and_usage,
                 ActiveIngredients = ndc.active_ingredients,
                 DosageAndAdministration = label.dosage_and_administration,
+                WarningsAndCautions = label.warnings_and_cautions,
                 HowSupplied = label.HowSupplied,
                 DeaSchedule = ndc.dea_schedule,
             };
