@@ -23,6 +23,9 @@ public record LabelData {
     [JsonPropertyName("description")]
     public List<string>? Description { get; set; }
     
+    [JsonPropertyName("how_supplied")]
+    public List<string>? HowSupplied { get; set; }
+    
     public List<string>? boxed_warning { get; set; }
     public List<string>? warnings_and_cautions { get; set; } 
     public List<string>? dosage_forms_and_strengths { get; set; } 

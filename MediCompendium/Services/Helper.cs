@@ -44,7 +44,10 @@ public class Helper {
                 GenericName = ndc.generic_name,
                 Description = label.Description,
                 Warnings = label.warnings,
+                IndicationsAndUsage = label.indications_and_usage,
                 ActiveIngredients = ndc.active_ingredients,
+                DosageAndAdministration = label.dosage_and_administration,
+                HowSupplied = label.HowSupplied,
                 DeaSchedule = ndc.dea_schedule,
             };
         else
