@@ -61,57 +61,35 @@ public partial class PrescriptionDetails : ContentPage {
         return true;
     }
 
-    private async void ToggleDescriptionVisibility(Object sender, EventArgs e) {
-        MedicationDescription.IsVisible = !MedicationDescription.IsVisible;
-        
-        if (MedicationDescription.IsVisible) return;
+    private async void ToggleVisiblity(Label element, Grid grid) {
+        element.IsVisible = !element.IsVisible;
+        if(element.IsVisible) return;
         
         await Task.Delay(100);
-        await MainScrollView.ScrollToAsync(DescriptionGrid, ScrollToPosition.MakeVisible, false);
+        await MainScrollView.ScrollToAsync(grid, ScrollToPosition.MakeVisible, false);
+    }
+
+    private void ToggleDescriptionVisibility(Object sender, EventArgs e) {
+        ToggleVisiblity(MedicationDescription, DescriptionGrid);
     }
     
-    private async void ToggleWarningVisibility(Object sender, EventArgs e) {
-        MedicationWarnings.IsVisible = !MedicationWarnings.IsVisible;
-        
-        if (MedicationWarnings.IsVisible) return;
-        
-        await Task.Delay(100);
-        await MainScrollView.ScrollToAsync(WarningGrid, ScrollToPosition.MakeVisible, false);
+    private void ToggleWarningVisibility(Object sender, EventArgs e) {
+        ToggleVisiblity(MedicationWarnings, WarningGrid);
     }
     
-    private async void ToggleUsageVisibility(Object sender, EventArgs e) {
-        MedicationUsage.IsVisible = !MedicationUsage.IsVisible;
-        
-        if (MedicationUsage.IsVisible) return;
-        
-        await Task.Delay(100);
-        await MainScrollView.ScrollToAsync(UsageGrid, ScrollToPosition.MakeVisible, false);
+    private void ToggleUsageVisibility(Object sender, EventArgs e) {
+        ToggleVisiblity(MedicationUsage, UsageGrid);
     }
     
-    private async void ToggleDosageVisibility(Object sender, EventArgs e) {
-        MedicationDosage.IsVisible = !MedicationDosage.IsVisible;
-        
-        if (MedicationDosage.IsVisible) return;
-        
-        await Task.Delay(100);
-        await MainScrollView.ScrollToAsync(DosageGrid, ScrollToPosition.MakeVisible, false);
+    private void ToggleDosageVisibility(Object sender, EventArgs e) {
+        ToggleVisiblity(MedicationDosage, DosageGrid);
     }
     
-    private async void ToggleActiveIngredientsVisibility(Object sender, EventArgs e) {
-        MedicationActiveIngredients.IsVisible = !MedicationActiveIngredients.IsVisible;
-        
-        if (MedicationActiveIngredients.IsVisible) return;
-        
-        await Task.Delay(100);
-        await MainScrollView.ScrollToAsync(ActiveIngredientsGrid, ScrollToPosition.MakeVisible, false);
+    private void ToggleActiveIngredientsVisibility(Object sender, EventArgs e) {
+        ToggleVisiblity(MedicationActiveIngredients, ActiveIngredientsGrid);
     }
     
-    private async void TogglePackagingVisibility(Object sender, EventArgs e) {
-        MedicationPackaging.IsVisible = !MedicationPackaging.IsVisible;
-        
-        if (MedicationPackaging.IsVisible) return;
-        
-        await Task.Delay(100);
-        await MainScrollView.ScrollToAsync(PackagingGrid, ScrollToPosition.MakeVisible, false);
+    private void TogglePackagingVisibility(Object sender, EventArgs e) {
+        ToggleVisiblity(MedicationPackaging, PackagingGrid);
     }
 }
