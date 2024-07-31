@@ -57,6 +57,7 @@ public class Helper {
                 LabelerName = ndc.labeler_name,
                 GenericName = ndc.generic_name,
                 ActiveIngredients = ndc.active_ingredients,
+                DosageForm = ndc.dosage_form.ToLower(),
                 IndicationsAndUsage = label.indications_and_usage,
                 Warnings = label.warnings,
                 KeepOutOfReach = label.keep_out_of_reach_of_children,

@@ -6,7 +6,6 @@ public class Medication {
     public string? ProductType { get; set; }
     public string? BrandName { get; set; }
     public string? LabelerName { get; set; }
-    public string? DosageForm { get; set; }
     public List<string>? Warnings { get; set; }
     public List<string>? IndicationsAndUsage { get; set; }
     public List<string>? DosageAndAdministration { get; set; }
