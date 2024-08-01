@@ -19,7 +19,12 @@
     <ShellContent
         ContentTemplate="{DataTemplate pages:PrescriptionDetails}"
         Route="PrescriptionDetails"/>
+    
     <ShellContent
         ContentTemplate="{DataTemplate pages:OTCDetails}"
         Route="OtcDetails"/>
+    
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:ProfileSelection}"
+        Route="ProfileSelection"/>
 </Shell>

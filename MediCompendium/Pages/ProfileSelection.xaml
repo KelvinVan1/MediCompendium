@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="using:MediCompendium.Views"
+             x:Class="MediCompendium.Pages.ProfileSelection">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Label Grid.Row="0"
+                Style="{StaticResource Headline}"
+                Text="Please Select a Profile"/>
+            
+            <CollectionView Grid.Row="1" ItemsSource="{Binding UserProfiles}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <views:IndividualProfile CurrentProfile="{Binding .}"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+            <Button Grid.Row="2"
+                    WidthRequest="300"
+                    HeightRequest="50"
+                    Margin="0, 0, 0, 10"
+                    VerticalOptions="End"
+                    Text="Create Profile"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
