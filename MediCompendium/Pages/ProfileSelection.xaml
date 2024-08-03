@@ -29,6 +29,7 @@
                     HeightRequest="50"
                     Margin="0, 0, 0, 10"
                     VerticalOptions="End"
+                    Clicked="OnCreateProfileClicked"
                     Text="Create Profile"/>
         </Grid>
     </ContentPage.Content>

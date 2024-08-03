@@ -27,4 +27,8 @@
     <ShellContent
         ContentTemplate="{DataTemplate pages:ProfileSelection}"
         Route="ProfileSelection"/>
+   
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:ProfileCreation}"
+        Route="ProfileCreation"/>
 </Shell>

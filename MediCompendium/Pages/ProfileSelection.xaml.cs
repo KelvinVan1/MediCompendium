@@ -15,4 +15,8 @@ public partial class ProfileSelection : ContentPage {
     public ProfileSelection() {
         InitializeComponent();
     }
+
+    private void OnCreateProfileClicked(object sender, EventArgs e) {
+        Shell.Current.GoToAsync("//ProfileCreation");
+    }
 }
