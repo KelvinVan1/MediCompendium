@@ -7,7 +7,7 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -17,6 +17,9 @@
                 Text="Please Select a Profile"/>
             
             <CollectionView Grid.Row="1" ItemsSource="{Binding UserProfiles}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="3"/>
+                </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <views:IndividualProfile CurrentProfile="{Binding .}"/>

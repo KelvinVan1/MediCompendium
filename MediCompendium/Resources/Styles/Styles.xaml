@@ -203,6 +203,13 @@
         <Setter Property="FontSize" Value="20" />
     </Style>
     
+    <Style TargetType="Label" x:Key="ProfileName">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource MidnightBlue}, Dark={StaticResource White}}" />
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="FontSize" Value="20" />
+    </Style>
+    
     <Style TargetType="Label" x:Key="MedicationDescription">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource MidnightBlue}, Dark={StaticResource White}}" />
     </Style>

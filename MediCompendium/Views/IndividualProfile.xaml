@@ -6,9 +6,18 @@
     <Frame BorderColor="Gray"
            CornerRadius="5"
            Margin="10">
-        <Image Grid.Row="0" Grid.Column="0"
-               Source="pill.png"
-               Aspect="AspectFit"
-               SemanticProperties.Description="Medication Icon" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0"
+                Source="pill.png"
+                Aspect="AspectFit"
+                SemanticProperties.Description="Medication Icon" />
+            <Label Grid.Row="1"
+                Style="{StaticResource ProfileName}"
+                Text="{Binding Username, StringFormat='{0}'}"/>
+        </Grid>
     </Frame>
 </ContentView>
