@@ -9,10 +9,6 @@ using MediCompendium.Models.ApiRecords;
 namespace MediCompendium.Services;
 
 public class ApiCommands {
-    /// <summary>
-    /// Fetches a list of medications from the OpenFDA API
-    /// </summary>
-    /// <returns>A list of medication NDC data. Returns an empty list if request fails</returns>
     public static async Task<List<NdcData>> FetchMedications(int skipCount) {
         try {
             string reqUri = $"{Constants.NdcRoute}search=finished:true&{Constants.Limit}&skip={skipCount}";
@@ -27,10 +23,6 @@ public class ApiCommands {
         }
     }
     
-    /// <summary>
-    /// Search for medications based on brand name the OpenFDA API
-    /// </summary>
-    /// <returns>A list of medication NDC data. Returns an empty list if request fails</returns>
     public static async Task<List<NdcData>> SearchMedication(string medicationName, int skipCount) {
         try {
             string reqUri = $"{Constants.NdcRoute}search=brand_name:\"{medicationName}\"finished:True&{Constants.Limit}&skip={skipCount}";
