@@ -27,6 +27,12 @@
             Route="MedicationList"/>
     </FlyoutItem>
     
+    <FlyoutItem Title="Saved Medications">
+        <ShellContent
+            ContentTemplate="{DataTemplate pages:FavoritedMedicationList}"
+            Route="FavoritedMedicationList"/>
+    </FlyoutItem>
+    
     <ShellContent
         ContentTemplate="{DataTemplate local:MainPage}"
         FlyoutItemIsVisible="False"

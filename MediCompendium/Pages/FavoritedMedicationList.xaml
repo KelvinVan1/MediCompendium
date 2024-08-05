@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:MediCompendium.Views"
+             x:Class="MediCompendium.Pages.FavoritedMedicationList">
+    <ContentPage.Content>
+        <Grid Padding="20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Label Grid.Row="0"
+                   Text="Medication List"
+                   Style="{StaticResource Headline}"/>
+            
+            <CollectionView Grid.Row="1" ItemsSource="{Binding Medications}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <views:MedicationItem CurrentMedication="{Binding .}"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView> 
+        </Grid> 
+    </ContentPage.Content>
+</ContentPage>

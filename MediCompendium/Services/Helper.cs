@@ -1,5 +1,6 @@
 using MediCompendium.Models;
 using MediCompendium.Models.ApiRecords;
+using MediCompendium.Models.DbTables;
 
 namespace MediCompendium.Services;
 
@@ -65,5 +66,15 @@ public class Helper {
                 Questions = label.questions,
                 Purpose = label.purpose,
             };
+    }
+    
+    public static async Task<List<NdcData>> FetchFavoriteMedications(List<FavoritedItem> favorites) {
+        var result = new List<NdcData>();
+        
+        foreach (var medication in favorites) {
+            result.Add(await ApiCommands.FetchMedicationNdc(medication.ProductNdc));    
+        }
+        
+        return result;
     }
 }
