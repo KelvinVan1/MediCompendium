@@ -24,6 +24,7 @@ public partial class ProfileSelection : ContentPage {
 
     protected override void OnAppearing() {
         base.OnAppearing();
+        Shell.Current.FlyoutBehavior = FlyoutBehavior.Disabled;
         GenerateProfiles();
     }
 

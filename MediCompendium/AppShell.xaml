@@ -5,9 +5,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MediCompendium"
     xmlns:pages="clr-namespace:MediCompendium.Pages"
+    xmlns:controls="clr-namespace:MediCompendium.controls"
     Shell.FlyoutBehavior="Disabled"
     Title="MediCompendium">
 
+    <Shell.FlyoutHeader>
+        <controls:FlyoutHeader/>
+    </Shell.FlyoutHeader>
     
     <FlyoutItem Title="Profile Selection">
         <ShellContent 

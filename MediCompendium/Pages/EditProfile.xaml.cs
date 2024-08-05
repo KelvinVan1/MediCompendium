@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MediCompendium.controls;
 using MediCompendium.Models.DbTables;
 using MediCompendium.Services;
 
@@ -69,6 +70,8 @@ public partial class EditProfile : ContentPage {
         
             await _db.AddProfile(profile);
             ProfileSelection.SelectedProfile = profile;
+            var flyoutHeader = (FlyoutHeader)Shell.Current.FlyoutHeader;
+            flyoutHeader.CurrentUserText = $"Currently logged in as: {ProfileSelection.SelectedProfile.Username}";
             await Shell.Current.GoToAsync("//MedicationList");
         }
     }

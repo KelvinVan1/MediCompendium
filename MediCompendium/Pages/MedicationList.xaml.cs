@@ -26,11 +26,11 @@ public partial class MedicationList : ContentPage {
         Medications = new ObservableCollection<Medication>();
         PerformSearch = new Command<string>(SearchMedication);
         BindingContext = this;
-        Shell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
     }
 
     protected override void OnAppearing() {
         base.OnAppearing();
+        Shell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
         GenerateDisplay();
     }
 

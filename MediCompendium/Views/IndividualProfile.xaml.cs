@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MediCompendium.controls;
 using MediCompendium.Models.DbTables;
 using MediCompendium.Pages;
 
@@ -24,6 +25,8 @@ public partial class IndividualProfile : ContentView {
 
     private void OnProfileTapped(object sender, EventArgs e) {
         ProfileSelection.SelectedProfile = CurrentProfile;
+        var flyoutHeader = (FlyoutHeader)Shell.Current.FlyoutHeader;
+        flyoutHeader.CurrentUserText = $"Currently logged in as: {CurrentProfile.Username}";
         Shell.Current.GoToAsync("//MedicationList");
     }
 }
