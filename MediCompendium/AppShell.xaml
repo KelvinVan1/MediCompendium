@@ -8,27 +8,42 @@
     Shell.FlyoutBehavior="Disabled"
     Title="MediCompendium">
 
+    
+    <FlyoutItem Title="Profile Selection">
+        <ShellContent 
+            ContentTemplate="{DataTemplate pages:ProfileSelection}"
+            Route="ProfileSelection"/>
+    </FlyoutItem>
+    
+    <FlyoutItem Title="Manage Profile">
+        <ShellContent 
+            ContentTemplate="{DataTemplate pages:EditProfile}"
+            Route="EditProfile"/>
+    </FlyoutItem>
+    
+    <FlyoutItem Title="Medication List">
+        <ShellContent
+            ContentTemplate="{DataTemplate pages:MedicationList}"
+            Route="MedicationList"/>
+    </FlyoutItem>
+    
     <ShellContent
         ContentTemplate="{DataTemplate local:MainPage}"
+        FlyoutItemIsVisible="False"
         Route="MainPage" />
 
     <ShellContent
-        ContentTemplate="{DataTemplate pages:MedicationList}"
-        Route="MedicationList"/>
-    
-    <ShellContent
         ContentTemplate="{DataTemplate pages:PrescriptionDetails}"
+        FlyoutItemIsVisible="False"
         Route="PrescriptionDetails"/>
     
     <ShellContent
         ContentTemplate="{DataTemplate pages:OTCDetails}"
+        FlyoutItemIsVisible="False"
         Route="OtcDetails"/>
     
     <ShellContent
-        ContentTemplate="{DataTemplate pages:ProfileSelection}"
-        Route="ProfileSelection"/>
-   
-    <ShellContent
         ContentTemplate="{DataTemplate pages:ProfileCreation}"
+        FlyoutItemIsVisible="False"
         Route="ProfileCreation"/>
 </Shell>

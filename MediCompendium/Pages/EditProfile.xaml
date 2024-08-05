@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MediCompendium.Pages.EditProfile">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid RowSpacing="10" Margin="5,0,5,5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+                       Style="{StaticResource Headline}"
+                       SemanticProperties.HeadingLevel="Level1"
+                       Text="Profile Creation"/>
+                
+                <Label Grid.Row="1" Grid.Column="0"
+                       Style="{StaticResource SubHeadline}"
+                       HorizontalOptions="Start"
+                       HorizontalTextAlignment="Center"
+                       Text="Username: "/>
+                <Entry x:Name="Username" Grid.Row="1" Grid.Column="1"
+                       Margin="0,-4,0,80"
+                       Placeholder="username"/>
+
+                
+                <Label Grid.Row="2" Grid.Column="0"
+                       Style="{StaticResource SubHeadline}"
+                       HorizontalOptions="Start"
+                       Text="First Name:"/>
+                <Entry x:Name="FirstName" Grid.Row="2" Grid.Column="1"
+                       Margin="0,-4,0,80"
+                       Placeholder="first name"/>
+                
+                <Label Grid.Row="3" Grid.Column="0"
+                       Style="{StaticResource SubHeadline}"
+                       HorizontalOptions="Start"
+                       Text="Last Name:"/>
+                <Entry x:Name="LastName" Grid.Row="3" Grid.Column="1"
+                       Margin="0,-4,0,80"
+                       Placeholder="last name"/>
+                
+                <Label Grid.Row="4" Grid.Column="0"
+                       Style="{StaticResource SubHeadline}"
+                       HorizontalOptions="Start"
+                       Text="Gender:"/>
+                <Picker x:Name="Gender" Grid.Row="4" Grid.Column="1" Margin="0, -4,0,80">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Male</x:String>
+                            <x:String>Female</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                
+                <Label Grid.Row="5" Grid.Column="0"
+                       Style="{StaticResource SubHeadline}"
+                       HorizontalOptions="Start"
+                       Text="Age:"/>
+                <Entry x:Name="Age" Grid.Row="5" Grid.Column="1"
+                       Margin="0,-4,0,80"
+                       Placeholder="age"/>
+                
+                <Grid Grid.Row="6" Grid.Column="0" ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Button Grid.Column="0" 
+                            WidthRequest="150" 
+                            HeightRequest="80" 
+                            Clicked="OnSaveClicked"
+                            Text="Save"/>
+                    <Button Grid.Column="1" 
+                            WidthRequest="150"
+                            HeightRequest="80"
+                            Clicked="OnCancelClicked"
+                            Text="Cancel"/>
+                </Grid>
+                
+                <Button Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
+                        WidthRequest="150"
+                        HeightRequest="80"
+                        Clicked="OnDeleteClicked"
+                        Text="Delete Profile"/>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

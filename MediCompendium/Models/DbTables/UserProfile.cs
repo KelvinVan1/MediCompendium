@@ -4,7 +4,7 @@ namespace MediCompendium.Models.DbTables;
 
 [Table("profile")]
 public class UserProfile {
-    [PrimaryKey, AutoIncrement, Column("_id")]
+    [PrimaryKey, AutoIncrement, Column("id")]
     public int Id { get; set; }
     
     [MaxLength(250), Unique, Column("username")]

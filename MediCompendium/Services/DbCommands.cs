@@ -30,9 +30,21 @@ public class DbCommands {
        
        if (_database == null) return 0;
        
-       return await _database.InsertAsync(profile);
+       if (profile.Id == 0) 
+           return await _database.InsertAsync(profile);
+       else
+           return await _database.UpdateAsync(profile);
     }
 
+    public async Task<int> DeleteProfile(int id) {
+        await InitUserProfile();
+
+        if (_database == null) return 0;
+
+        var query = "DELETE FROM profile WHERE id = ?";
+        return await _database.ExecuteAsync(query, id);
+    }
+    
     public async Task<List<UserProfile>> GetProfiles() {
         await InitUserProfile();
 
@@ -40,7 +52,7 @@ public class DbCommands {
 
         return await _database.Table<UserProfile>().ToListAsync();
     }
-
+    
     public async Task<int> AddFavorite(FavoritedItem item) {
         await InitFavoriteMedication();
 

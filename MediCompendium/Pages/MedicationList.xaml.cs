@@ -24,9 +24,14 @@ public partial class MedicationList : ContentPage {
         InitializeComponent();
         _db = new DbCommands();
         Medications = new ObservableCollection<Medication>();
-        GenerateDisplay();
         PerformSearch = new Command<string>(SearchMedication);
         BindingContext = this;
+        Shell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
+    }
+
+    protected override void OnAppearing() {
+        base.OnAppearing();
+        GenerateDisplay();
     }
 
     private async void GenerateDisplay() {
