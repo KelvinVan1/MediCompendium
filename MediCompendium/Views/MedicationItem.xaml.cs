@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MediCompendium.Models;
+using MediCompendium.Models.DbTables;
 using MediCompendium.Pages;
+using MediCompendium.Services;
 
 namespace MediCompendium.Views;
 
@@ -18,9 +20,12 @@ public partial class MedicationItem : ContentView {
         get => (Medication)GetValue(CurrentMedicationProperty);
         set => SetValue(CurrentMedicationProperty, value);
     }
+    
+    private DbCommands _db { get; set; }
 
     public MedicationItem() {
         InitializeComponent();
+        _db = new DbCommands();
         BindingContextChanged += OnBindingContextChanged;
     }
     
@@ -29,9 +34,24 @@ public partial class MedicationItem : ContentView {
             ActiveIngredientLabel.Text = medication.ActiveIngredientsToString(3);
     }
     
-    private void OnFavoriteTapped(object sender, EventArgs e) {
+    private async void OnFavoriteTapped(object sender, EventArgs e) {
         var currentImage = FavoriteHeart.Source.ToString();
-        FavoriteHeart.Source = currentImage.Contains("heart.png") ? "heart_filled.png" : "heart.png";
+        
+        if (CurrentMedication.ProductNdc == null) return;
+        if (string.IsNullOrEmpty(ProfileSelection.SelectedProfile.Id.ToString())) return;
+        
+        var favorite = new FavoritedItem() {
+            ProductNdc = CurrentMedication.ProductNdc,
+            ProfileId = ProfileSelection.SelectedProfile.Id.ToString()
+        };
+        if (currentImage.Contains("heart.png")) {
+            FavoriteHeart.Source = "heart_filled.png";
+            await _db.AddFavorite(favorite);
+        }
+        else {
+            FavoriteHeart.Source = "heart.png";
+            await _db.RemoveFavorite(favorite);
+        }
     }
     private async void OnMedicationTapped(object sender, EventArgs e) {
         if (CurrentMedication.ProductType == "HUMAN PRESCRIPTION DRUG")
