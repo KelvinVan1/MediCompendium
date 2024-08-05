@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MediCompendium.Pages.Reports">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Padding="20,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="2"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <Label Grid.Row="0" 
+                       Text="Report Generation"
+                       Style="{StaticResource Headline}"/>
+                
+                <BoxView Grid.Row="1" BackgroundColor="Black"></BoxView>
+                
+                <StackLayout Grid.Row="2">
+                    <Label Text="Please Select the type of report" />
+                    <RadioButton x:Name="SavedMedications"
+                                 Content="Saved Medications"
+                                 Value="Saved Meds"/>
+                    <RadioButton x:Name="SavedOtcMedications"
+                                 Content="Saved OTC Medications"
+                                 Value="OTC Meds"/>
+                    <RadioButton x:Name="SavedPrescriptionMedications"
+                                 Content="Saved Prescription Medications"
+                                 Value="Prescription Meds"/>
+                    <RadioButton x:Name="MedicationCount"
+                                 Content="Number of saved medications"
+                                 Value="Saved Count"/>
+                </StackLayout>
+                
+                <Button Grid.Row="3"
+                        HeightRequest="50"
+                        Margin="5"
+                        Clicked="GenerateReport"
+                        Text="Generate Report"/>
+                
+                <Frame Grid.Row="4"
+                       BorderColor="Gray"
+                       CornerRadius="5"
+                       Margin="10">
+                    <StackLayout x:Name="ReportContent"/>
+                </Frame>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

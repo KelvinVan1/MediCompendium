@@ -14,7 +14,8 @@ public partial class MedicationItem : ContentView {
     public static readonly BindableProperty CurrentMedicationProperty = BindableProperty.Create(
         nameof(CurrentMedication),
         typeof(Medication),
-        typeof(MedicationItem));
+        typeof(MedicationItem),
+        propertyChanged: OnCurrentMedicationChanged);
 
     public Medication CurrentMedication {
         get => (Medication)GetValue(CurrentMedicationProperty);
@@ -36,6 +37,11 @@ public partial class MedicationItem : ContentView {
             if (medication.Favorited == true) FavoriteHeart.Source = "heart_filled.png";
             else FavoriteHeart.Source = "heart.png";
         }
+    }
+    
+    private static void OnCurrentMedicationChanged(BindableObject bindable, object oldValue, object newValue) {
+        var control = (MedicationItem)bindable;
+        control.BindingContext = newValue;
     }
     
     private async void OnFavoriteTapped(object sender, EventArgs e) {
