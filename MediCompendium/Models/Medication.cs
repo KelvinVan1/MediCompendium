@@ -28,4 +28,18 @@ public class Medication {
 
         return result.Remove(result.Length-2, 2);
     }
+    
+    // Overloaded method
+    public string ActiveIngredientsToString() {
+        var result = "";
+        
+        if (ActiveIngredients == null || ActiveIngredients.Count == 0) return "Not Provided";
+        
+        for (var i = 0; i < ActiveIngredients.Count; i++) {
+            var ingredient = ActiveIngredients[i].name.ToLower() + " " + ActiveIngredients[i].strength + "\n";
+            result += ingredient;
+        }
+
+        return result;
+    }
 }

@@ -37,7 +37,7 @@ public partial class OTCDetails : ContentPage {
         MedicationName.Text = $"Medication: {otc.BrandName}";
         
         if(otc.ActiveIngredients != null)
-            MedicationActiveIngredients.Text = otc.ActiveIngredientsToString(otc.ActiveIngredients.Count).Replace(". ", ".\n");
+            MedicationActiveIngredients.Text = otc.ActiveIngredientsToString();
         if(otc.Purpose != null) 
             MedicationDescription.Text = otc.Purpose[0].Replace(". ",".\n\n");
         if(otc.Warnings != null)

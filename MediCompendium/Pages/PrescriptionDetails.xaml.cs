@@ -38,7 +38,7 @@ public partial class PrescriptionDetails : ContentPage {
         MedicationName.Text = $"Medication: {prescription.BrandName}";
         
         if(prescription.ActiveIngredients != null)
-            MedicationActiveIngredients.Text = prescription.ActiveIngredientsToString(prescription.ActiveIngredients.Count).Replace(". ", ".\n");
+            MedicationActiveIngredients.Text = prescription.ActiveIngredientsToString();
         if(prescription.Description != null) 
             MedicationDescription.Text = prescription.Description[0].Replace(". ",".\n\n");
         if(prescription.WarningsAndCautions != null) 
