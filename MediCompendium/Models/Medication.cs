@@ -9,7 +9,9 @@ public class Medication {
     public List<string>? Warnings { get; set; }
     public List<string>? IndicationsAndUsage { get; set; }
     public List<string>? DosageAndAdministration { get; set; }
-    public List<ActiveIngredients>? ActiveIngredients { get; set; }
+    public List<ActiveIngredients>? ActiveIngredients { get; set;}
+    
+    public bool? Favorited { get; set; }
     
     public Medication(){}
     

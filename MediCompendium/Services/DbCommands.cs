@@ -58,11 +58,21 @@ public class DbCommands {
         return await _database.ExecuteAsync(query, item.ProductNdc, item.ProfileId);
     }
 
-    public async Task<List<FavoritedItem>> GetFavoriteItems() {
+    public async Task<List<FavoritedItem>> SearchFavoriteItem(int userId, string productNdc) {
         await InitFavoriteMedication();
 
         if (_database == null) return new List<FavoritedItem>();
 
-        return await _database.Table<FavoritedItem>().ToListAsync();
+        const string query = "SELECT * FROM favorite_items WHERE (product_ndc = ? AND profile_id = ?)"; 
+        return await _database.QueryAsync<FavoritedItem>(query, productNdc, userId);
+    }
+    
+    public async Task<List<FavoritedItem>> GetFavoriteItems(int userId) {
+        await InitFavoriteMedication();
+
+        if (_database == null) return new List<FavoritedItem>();
+
+        const string query = "SELECT * FROM favorite_items WHERE profile_id = ?";
+        return await _database.QueryAsync<FavoritedItem>(query, userId);
     }
 }

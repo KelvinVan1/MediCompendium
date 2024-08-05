@@ -11,6 +11,7 @@ using MediCompendium.Services;
 namespace MediCompendium.Pages;
 
 public partial class MedicationList : ContentPage {
+    private DbCommands _db { get; set; }
     public ObservableCollection<Medication> Medications { get; set; }
     public ICommand PerformSearch { get; set; }
     
@@ -21,6 +22,7 @@ public partial class MedicationList : ContentPage {
     
     public MedicationList() {
         InitializeComponent();
+        _db = new DbCommands();
         Medications = new ObservableCollection<Medication>();
         GenerateDisplay();
         PerformSearch = new Command<string>(SearchMedication);
@@ -31,6 +33,9 @@ public partial class MedicationList : ContentPage {
         Medications.Clear();
         _MedicationViews = Helper.GenerateMedications(await ApiCommands.FetchMedications(_skip));
         foreach (var medication in _MedicationViews) {
+            var search = await _db.SearchFavoriteItem(ProfileSelection.SelectedProfile.Id, medication.ProductNdc);
+            if (search.Count > 0) medication.Favorited = true;
+            
             Medications.Add(medication);
         }
     }
@@ -66,6 +71,9 @@ public partial class MedicationList : ContentPage {
         Medications.Clear();
         _MedicationViews = Helper.GenerateMedications(await ApiCommands.SearchMedication(_searchQuery, _skip));
         foreach (var medication in _MedicationViews) {
+            var search = await _db.SearchFavoriteItem(ProfileSelection.SelectedProfile.Id, medication.ProductNdc);
+            if (search.Count > 0) medication.Favorited = true;
+            
             Medications.Add(medication);
         }
     }

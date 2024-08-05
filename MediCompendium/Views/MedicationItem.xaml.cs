@@ -30,8 +30,12 @@ public partial class MedicationItem : ContentView {
     }
     
     private void OnBindingContextChanged(object sender, EventArgs e) {
-        if (BindingContext is Medication medication)
-            ActiveIngredientLabel.Text = medication.ActiveIngredientsToString(3);
+        if (BindingContext is Medication medication) {
+            ActiveIngredientLabel.Text = medication.ActiveIngredientsToString(2);
+            
+            if (medication.Favorited == true) FavoriteHeart.Source = "heart_filled.png";
+            else FavoriteHeart.Source = "heart.png";
+        }
     }
     
     private async void OnFavoriteTapped(object sender, EventArgs e) {
