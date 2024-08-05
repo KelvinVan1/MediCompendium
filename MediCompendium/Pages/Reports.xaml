@@ -12,6 +12,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 
                 <Label Grid.Row="0" 
@@ -46,7 +47,8 @@
                        BorderColor="Gray"
                        CornerRadius="5"
                        Margin="10">
-                    <StackLayout x:Name="ReportContent"/>
+                    <StackLayout x:Name="ReportContent">
+                    </StackLayout>
                 </Frame>
             </Grid>
         </ScrollView>
