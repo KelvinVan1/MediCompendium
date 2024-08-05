@@ -11,6 +11,7 @@ using MediCompendium.Services;
 namespace MediCompendium.Pages;
 
 public partial class ProfileSelection : ContentPage {
+    public static UserProfile SelectedProfile { get; set; }
     public ObservableCollection<UserProfile> UserProfiles { get; set; }
     private DbCommands? _db;
     

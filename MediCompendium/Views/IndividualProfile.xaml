@@ -6,6 +6,11 @@
     <Frame BorderColor="Gray"
            CornerRadius="5"
            Margin="10">
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer
+                NumberOfTapsRequired="1"
+                Tapped="OnProfileTapped"/>
+        </Frame.GestureRecognizers>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
