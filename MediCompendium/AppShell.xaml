@@ -12,6 +12,11 @@
     <Shell.FlyoutHeader>
         <controls:FlyoutHeader/>
     </Shell.FlyoutHeader>
+        
+    <ShellContent
+        ContentTemplate="{DataTemplate local:MainPage}"
+        FlyoutItemIsVisible="False"
+        Route="MainPage" />
     
     <FlyoutItem Title="Profile Selection">
         <ShellContent 
@@ -42,11 +47,6 @@
             ContentTemplate="{DataTemplate pages:Reports}"
             Route="Reports"/>
     </FlyoutItem>
-    
-    <ShellContent
-        ContentTemplate="{DataTemplate local:MainPage}"
-        FlyoutItemIsVisible="False"
-        Route="MainPage" />
 
     <ShellContent
         ContentTemplate="{DataTemplate pages:PrescriptionDetails}"
