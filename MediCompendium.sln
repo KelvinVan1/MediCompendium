@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediCompendium", "MediCompendium\MediCompendium.csproj", "{77DD27E6-D7AC-42B9-B035-160C85CC6843}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediCompendiumUnitTest", "MediCompendiumUnitTest\MediCompendiumUnitTest.csproj", "{A7725531-F710-4D76-9E33-37D9F19591EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,5 +16,9 @@ Global
 		{77DD27E6-D7AC-42B9-B035-160C85CC6843}.Release|Any CPU.Build.0 = Release|Any CPU
 		{77DD27E6-D7AC-42B9-B035-160C85CC6843}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{77DD27E6-D7AC-42B9-B035-160C85CC6843}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A7725531-F710-4D76-9E33-37D9F19591EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7725531-F710-4D76-9E33-37D9F19591EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7725531-F710-4D76-9E33-37D9F19591EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7725531-F710-4D76-9E33-37D9F19591EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
